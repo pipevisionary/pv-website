@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap');
+
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  background: black;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1.2s ease-out;
+}
+html {
+  scroll-behavior: smooth;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+@keyframes eyeBlink {
+  0%, 90%, 100% {
+    transform: scaleY(1);
+  }
+
+  92% {
+    transform: scaleY(0.02);
+  }
+
+  94% {
+    transform: scaleY(1);
+  }
+}
+
+.animate-eyeBlink {
+  animation: eyeBlink 3s infinite;
+  transform-origin: center;
+  display: inline-block;
+}
