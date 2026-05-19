@@ -1,7 +1,21 @@
 const navbarLogo = "/pv-navbar-logo.png";
 const heroLogo = "/pv-hero-logo.png";
 
+import { useEffect } from "react";
+
 export default function App() {
+
+ useEffect(() => {
+  const link = document.createElement("link");
+  link.href = "https://assets.calendly.com/assets/external/widget.css";
+  link.rel = "stylesheet";
+  document.head.appendChild(link);
+
+  const script = document.createElement("script");
+  script.src = "https://assets.calendly.com/assets/external/widget.js";
+  script.async = true;
+  document.body.appendChild(script);
+}, []);
   return (
    <div className="min-h-screen bg-black text-white font-sans overflow-hidden">
   <nav className="sticky top-0 z-50 backdrop-blur-2xl bg-black/60 border-b border-cyan-400/10 shadow-[0_0_25px_rgba(34,211,238,0.08)] transition-all duration-500">
@@ -24,6 +38,7 @@ export default function App() {
           </div>
 <div className="hidden md:flex items-center gap-8 text-sm text-gray-300 backdrop-blur-sm">
   <a
+              
               href="#services"
               className="hover:text-cyan-400 hover:-translate-y-0.5 transition-all duration-300"
             >
@@ -66,49 +81,26 @@ export default function App() {
      <p className="mt-6 text-lg text-gray-300/90 max-w-xl leading-relaxed tracking-wide animate-fadeIn">
   High-quality sewer pipe inspections using advanced camera systems, honest diagnostics, and modern underground analysis technology.
 </p>
-      <div className="mt-10 flex flex-wrap gap-4">
-     
-     <a
-  href="https://calendly.com/pipevisionary"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="px-6 py-4 rounded-2xl bg-cyan-400 text-black font-black hover:bg-cyan-300 hover:scale-105 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(34,211,238,0.5)] transition-all duration-300 shadow-lg shadow-cyan-400/20 inline-block"
->
-  Book Sunday Inspection
-</a>
+
         <a
           href="#services"
-          className="px-6 py-4 rounded-2xl border border-cyan-400/20 hover:bg-cyan-400/10 hover:border-cyan-400 hover:scale-105 hover:-translate-y-1 transition-all duration-300"
+          className="mt-6 inline-block px-6 py-4 rounded-2xl border border-cyan-400/20 hover:bg-cyan-400/10 hover:border-cyan-400 hover:scale-105 hover:-translate-y-1 transition-all duration-300"
         >
           View Services
-        </a>
+      </a>
       </div>
-    </div>
 
     <div className="relative flex items-center justify-center">
-      <div className="relative bg-zinc-900 border border-cyan-400/20 hover:border-cyan-400/40 rounded-[2rem] p-6 shadow-2xl w-full max-w-xs overflow-hidden animate-float transition-all duration-500 hover:shadow-[0_0_45px_rgba(34,211,238,0.18)] hover:-translate-y-1">
-        <div className="min-h-[450px] rounded-[1.5rem] overflow-hidden bg-gradient-to-br from-cyan-400/20 to-black border border-cyan-500/10 flex items-center justify-center">
-          <div className="text-center px-6">
-            <img
-              src={heroLogo}
-              alt="PV Logo"
-             className="w-48 mx-auto mb-8 object-contain drop-shadow-[0_0_30px_rgba(34,211,238,0.18)] hover:scale-105 transition-all duration-500"
-            />
-
-            <h2 className="mt-8 text-3xl font-black tracking-wide">
-              Pipe Visionary
-            </h2>
-
-            <p className="mt-4 text-gray-300">
-              Advanced underground diagnostics with professional sewer camera inspection technology.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div className="relative flex items-center justify-center animate-float">
+    <img
+      src={heroLogo}
+      alt="PV Hero"
+      className="w-full max-w-2xl object-contain drop-shadow-[0_0_40px_rgba(34,211,238,0.18)]"
+    />
+  </div>
+</div>
   </div>
 </section>
-
 <section id="services" className="max-w-7xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
           <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm hover:tracking-[0.4em] transition-all duration-300">
@@ -176,49 +168,15 @@ export default function App() {
             </div>
           </div>
 
-        <div className="bg-black border border-cyan-400/10 rounded-[2rem] p-8 shadow-2xl backdrop-blur-md transition-all duration-500 hover:shadow-[0_0_45px_rgba(34,211,238,0.12)]">
-  <div className="mb-8 border border-cyan-400/10 rounded-2xl p-5 bg-zinc-900/60">
-              <h4 className="text-cyan-400 font-black text-lg mb-4">
-                Sunday Availability
-              </h4>
+        <div className="bg-black border border-cyan-400/10 rounded-[2rem] p-4 shadow-2xl backdrop-blur-md transition-all duration-500 hover:shadow-[0_0_45px_rgba(34,211,238,0.12)]">
+  <div
+  className="calendly-inline-widget"
+ data-url="https://calendly.com/pipevisionary/sundays-only?background_color=000000&text_color=ffffff&primary_color=22d3ee" 
+  style={{ minWidth: "320px", height: "700px" }}
+></div>
+</div>
 
-              <div className="grid grid-cols-3 gap-3 mt-2">
-                {["9:00 AM", "11:30 AM", "1:30 PM"].map((time, i) => (
-                  <button
-                    key={i}
-                    className="py-3 rounded-xl border border-cyan-400/20 bg-black hover:bg-cyan-400 hover:text-black hover:scale-105 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(34,211,238,0.35)] text-cyan-300 font-semibold transition-all duration-300"
-                  >
-                    {time}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-8 space-y-5">
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="w-full bg-zinc-900 border border-cyan-400/10 rounded-2xl px-5 py-4 outline-none focus:border-cyan-400 focus:shadow-[0_0_20px_rgba(34,211,238,0.18)] hover:border-cyan-400/30 transition-all duration-300 text-white"
-              />
-
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full bg-zinc-900 border border-cyan-400/10 rounded-2xl px-5 py-4 outline-none focus:border-cyan-400 focus:shadow-[0_0_20px_rgba(34,211,238,0.18)] hover:border-cyan-400/30 transition-all duration-300 text-white"
-              />
-
-              <textarea
-                placeholder="Tell us about your inspection needs"
-                rows={5}
-                 className="w-full bg-zinc-900 border border-cyan-400/10 rounded-2xl px-5 py-4 outline-none focus:border-cyan-400 focus:shadow-[0_0_20px_rgba(34,211,238,0.18)] transition-all duration-300 text-white resize-none hover:border-cyan-400/30"
-></textarea>
-
-              <button className="w-full py-4 rounded-2xl bg-cyan-400 text-black font-black hover:bg-cyan-300 hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(34,211,238,0.45)] transition-all duration-300 shadow-lg shadow-cyan-400/20">
-  Send Appointment Request
-</button>
-            </div>
-          </div>
-        </div>
+</div>
       </section>
       <footer className="border-t border-cyan-400/10 bg-gradient-to-b from-black to-zinc-950 py-8 shadow-[0_-10px_40px_rgba(34,211,238,0.05)] backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
